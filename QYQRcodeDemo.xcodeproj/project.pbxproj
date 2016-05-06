@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4763C56D1CDC821D00760D8D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4763C56C1CDC821D00760D8D /* AVFoundation.framework */; };
+		4763C5711CDC822F00760D8D /* QYScanerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4763C5701CDC822F00760D8D /* QYScanerView.m */; };
+		4763C5741CDC830000760D8D /* QYScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4763C5731CDC830000760D8D /* QYScannerViewController.m */; };
+		4763C5771CDC84DD00760D8D /* QYQRCodeBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4763C5761CDC84DD00760D8D /* QYQRCodeBuilder.m */; };
 		47BDC2021CDC808A009B34C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BDC2011CDC808A009B34C3 /* main.m */; };
 		47BDC2051CDC808A009B34C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BDC2041CDC808A009B34C3 /* AppDelegate.m */; };
 		47BDC2081CDC808A009B34C3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BDC2071CDC808A009B34C3 /* ViewController.m */; };
@@ -35,6 +39,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4763C56C1CDC821D00760D8D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		4763C56F1CDC822F00760D8D /* QYScanerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYScanerView.h; sourceTree = "<group>"; };
+		4763C5701CDC822F00760D8D /* QYScanerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYScanerView.m; sourceTree = "<group>"; };
+		4763C5721CDC830000760D8D /* QYScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYScannerViewController.h; sourceTree = "<group>"; };
+		4763C5731CDC830000760D8D /* QYScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYScannerViewController.m; sourceTree = "<group>"; };
+		4763C5751CDC84DD00760D8D /* QYQRCodeBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYQRCodeBuilder.h; sourceTree = "<group>"; };
+		4763C5761CDC84DD00760D8D /* QYQRCodeBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYQRCodeBuilder.m; sourceTree = "<group>"; };
 		47BDC1FD1CDC808A009B34C3 /* QYQRcodeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QYQRcodeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47BDC2011CDC808A009B34C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		47BDC2031CDC808A009B34C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -58,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4763C56D1CDC821D00760D8D /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,9 +90,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4763C56E1CDC822F00760D8D /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				4763C56F1CDC822F00760D8D /* QYScanerView.h */,
+				4763C5701CDC822F00760D8D /* QYScanerView.m */,
+				4763C5751CDC84DD00760D8D /* QYQRCodeBuilder.h */,
+				4763C5761CDC84DD00760D8D /* QYQRCodeBuilder.m */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
 		47BDC1F41CDC808A009B34C3 = {
 			isa = PBXGroup;
 			children = (
+				4763C56C1CDC821D00760D8D /* AVFoundation.framework */,
 				47BDC1FF1CDC808A009B34C3 /* QYQRcodeDemo */,
 				47BDC2191CDC808B009B34C3 /* QYQRcodeDemoTests */,
 				47BDC2241CDC808B009B34C3 /* QYQRcodeDemoUITests */,
@@ -101,10 +125,13 @@
 		47BDC1FF1CDC808A009B34C3 /* QYQRcodeDemo */ = {
 			isa = PBXGroup;
 			children = (
+				4763C56E1CDC822F00760D8D /* classes */,
 				47BDC2031CDC808A009B34C3 /* AppDelegate.h */,
 				47BDC2041CDC808A009B34C3 /* AppDelegate.m */,
 				47BDC2061CDC808A009B34C3 /* ViewController.h */,
 				47BDC2071CDC808A009B34C3 /* ViewController.m */,
+				4763C5721CDC830000760D8D /* QYScannerViewController.h */,
+				4763C5731CDC830000760D8D /* QYScannerViewController.m */,
 				47BDC2091CDC808A009B34C3 /* Main.storyboard */,
 				47BDC20C1CDC808A009B34C3 /* Assets.xcassets */,
 				47BDC20E1CDC808A009B34C3 /* LaunchScreen.storyboard */,
@@ -275,7 +302,10 @@
 			files = (
 				47BDC2081CDC808A009B34C3 /* ViewController.m in Sources */,
 				47BDC2051CDC808A009B34C3 /* AppDelegate.m in Sources */,
+				4763C5711CDC822F00760D8D /* QYScanerView.m in Sources */,
+				4763C5741CDC830000760D8D /* QYScannerViewController.m in Sources */,
 				47BDC2021CDC808A009B34C3 /* main.m in Sources */,
+				4763C5771CDC84DD00760D8D /* QYQRCodeBuilder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +397,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -406,7 +436,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -418,6 +448,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = QYQRcodeDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liuming.QYQRcodeDemo;
@@ -429,6 +460,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = QYQRcodeDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liuming.QYQRcodeDemo;
@@ -501,6 +533,7 @@
 				47BDC22C1CDC808B009B34C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		47BDC22D1CDC808B009B34C3 /* Build configuration list for PBXNativeTarget "QYQRcodeDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +542,7 @@
 				47BDC22F1CDC808B009B34C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		47BDC2301CDC808B009B34C3 /* Build configuration list for PBXNativeTarget "QYQRcodeDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +551,7 @@
 				47BDC2321CDC808B009B34C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
