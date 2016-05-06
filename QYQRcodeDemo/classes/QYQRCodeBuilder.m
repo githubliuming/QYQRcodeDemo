@@ -19,7 +19,6 @@
     CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
     
     // 2. 恢复滤镜的默认属性
-    
     [filter setDefaults];
     
     // 3. 将字符串转换成
