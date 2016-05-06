@@ -58,7 +58,7 @@
     
     //4.1.将输入流添加到会话
     [_captureSession addInput:input];
-    
+    _captureSession.sessionPreset = AVCaptureSessionPreset1920x1080;
     //4.2.将媒体输出流添加到会话中
     [_captureSession addOutput:captureMetadataOutput];
     
@@ -83,19 +83,36 @@
     //9.将图层添加到预览view的图层上
     [self.layer addSublayer:_videoPreviewLayer];
     
-    //10.设置扫描范围
-    captureMetadataOutput.rectOfInterest = CGRectMake(0.2f, 0.2f, 0.8f, 0.8f);
-
-    
     //10.1.扫描框
     CGRect frame = CGRectMake((self.frame.size.width - 200)/2.0f, (self.frame.size.height - 200)/2.0f, 200, 200);
+    
+    
+    CGSize size = self.bounds.size;
+    CGRect cropRect = frame;
+    CGFloat p1 = size.height/size.width;
+    CGFloat p2 = 1920./1080.;  //使用了1080p的图像输出
+    if (p1 < p2) {
+        CGFloat fixHeight = self.bounds.size.width * 1920. / 1080.;
+        CGFloat fixPadding = (fixHeight - size.height)/2;
+        captureMetadataOutput.rectOfInterest = CGRectMake((cropRect.origin.y + fixPadding)/fixHeight,
+                                                  cropRect.origin.x/size.width,
+                                                  cropRect.size.height/fixHeight,
+                                                  cropRect.size.width/size.width);
+    } else {
+        
+        CGFloat fixWidth =self.bounds.size.height * 1080. / 1920.;
+        CGFloat fixPadding = (fixWidth - size.width)/2;
+        captureMetadataOutput.rectOfInterest = CGRectMake(cropRect.origin.y/size.height,
+                                                  (cropRect.origin.x + fixPadding)/fixWidth,
+                                                  cropRect.size.height/size.height,
+                                                  cropRect.size.width/fixWidth);
+    }
+   
     _boxView = [[UIView alloc] initWithFrame:frame];
     _boxView.layer.borderColor = [UIColor greenColor].CGColor;
     _boxView.layer.borderWidth = 1.0f;
     
     [self addSubview:_boxView];
-    
-    
     //10.2.扫描线
     _scanLayer = [[CALayer alloc] init];
     _scanLayer.frame = CGRectMake(0, 0, _boxView.frame.size.width, 1);
