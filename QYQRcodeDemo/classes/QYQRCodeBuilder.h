@@ -10,4 +10,5 @@
 
 @interface QYQRCodeBuilder : NSObject
 
+- (UIImage *)getMyImage:(NSString *)str size:(CGSize) size;
 @end

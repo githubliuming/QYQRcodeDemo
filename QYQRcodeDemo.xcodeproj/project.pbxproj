@@ -11,6 +11,7 @@
 		4763C5711CDC822F00760D8D /* QYScanerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4763C5701CDC822F00760D8D /* QYScanerView.m */; };
 		4763C5741CDC830000760D8D /* QYScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4763C5731CDC830000760D8D /* QYScannerViewController.m */; };
 		4763C5771CDC84DD00760D8D /* QYQRCodeBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4763C5761CDC84DD00760D8D /* QYQRCodeBuilder.m */; };
+		4763C57A1CDC887300760D8D /* QYQRBuilderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4763C5791CDC887300760D8D /* QYQRBuilderViewController.m */; };
 		47BDC2021CDC808A009B34C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BDC2011CDC808A009B34C3 /* main.m */; };
 		47BDC2051CDC808A009B34C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BDC2041CDC808A009B34C3 /* AppDelegate.m */; };
 		47BDC2081CDC808A009B34C3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BDC2071CDC808A009B34C3 /* ViewController.m */; };
@@ -46,6 +47,8 @@
 		4763C5731CDC830000760D8D /* QYScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYScannerViewController.m; sourceTree = "<group>"; };
 		4763C5751CDC84DD00760D8D /* QYQRCodeBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYQRCodeBuilder.h; sourceTree = "<group>"; };
 		4763C5761CDC84DD00760D8D /* QYQRCodeBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYQRCodeBuilder.m; sourceTree = "<group>"; };
+		4763C5781CDC887300760D8D /* QYQRBuilderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYQRBuilderViewController.h; sourceTree = "<group>"; };
+		4763C5791CDC887300760D8D /* QYQRBuilderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYQRBuilderViewController.m; sourceTree = "<group>"; };
 		47BDC1FD1CDC808A009B34C3 /* QYQRcodeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QYQRcodeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47BDC2011CDC808A009B34C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		47BDC2031CDC808A009B34C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -132,6 +135,8 @@
 				47BDC2071CDC808A009B34C3 /* ViewController.m */,
 				4763C5721CDC830000760D8D /* QYScannerViewController.h */,
 				4763C5731CDC830000760D8D /* QYScannerViewController.m */,
+				4763C5781CDC887300760D8D /* QYQRBuilderViewController.h */,
+				4763C5791CDC887300760D8D /* QYQRBuilderViewController.m */,
 				47BDC2091CDC808A009B34C3 /* Main.storyboard */,
 				47BDC20C1CDC808A009B34C3 /* Assets.xcassets */,
 				47BDC20E1CDC808A009B34C3 /* LaunchScreen.storyboard */,
@@ -303,6 +308,7 @@
 				47BDC2081CDC808A009B34C3 /* ViewController.m in Sources */,
 				47BDC2051CDC808A009B34C3 /* AppDelegate.m in Sources */,
 				4763C5711CDC822F00760D8D /* QYScanerView.m in Sources */,
+				4763C57A1CDC887300760D8D /* QYQRBuilderViewController.m in Sources */,
 				4763C5741CDC830000760D8D /* QYScannerViewController.m in Sources */,
 				47BDC2021CDC808A009B34C3 /* main.m in Sources */,
 				4763C5771CDC84DD00760D8D /* QYQRCodeBuilder.m in Sources */,

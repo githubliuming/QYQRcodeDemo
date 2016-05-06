@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "QYScanerView.h"
 #import "QYScannerViewController.h"
+#import "QYQRBuilderViewController.h"
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong)UITableView * tableView;
@@ -70,12 +71,14 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    
     switch (indexPath.row) {
         case 0:
         {
             
+            UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            QYQRBuilderViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"QYQRBuilderViewController"];
+            
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         case 1:{

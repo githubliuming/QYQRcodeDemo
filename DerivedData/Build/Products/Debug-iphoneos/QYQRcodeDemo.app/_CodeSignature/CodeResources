@@ -35,7 +35,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			UBycwU576WAkp5G060TWja2VKn8=
+			yF6bBA2z87VN1dMdJqQUT96VNPw=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -44,7 +44,16 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wDBJq985RD4bs8/fUk8zzOVWj2s=
+			UiRPl2OaO5JV5fzHKN49A3MDfy8=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Base.lproj/Main.storyboardc/QYQRBuilderViewController.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			9N06ScIUS3SKA7kM9GW1wM+P1Hg=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -53,7 +62,16 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DW6gil0QmQ4LjuY/HzqWXBXWpig=
+			OvEShPn5ggiumx68LVIdnrTro6M=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Base.lproj/Main.storyboardc/YtQ-mH-KvL-view-8Gb-cQ-Tos.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			o3XNGTn+deEAhxU/vgpFtNizyGA=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -116,11 +134,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			UBycwU576WAkp5G060TWja2VKn8=
+			yF6bBA2z87VN1dMdJqQUT96VNPw=
 			</data>
 			<key>hash2</key>
 			<data>
-			KR/O0BzyziWWbNH9yxurCFjW4ZHqwahx2LWiSfTPUY8=
+			or0VcG6BeODffqUfWs5eykOR2TtlYXtqOsUI2sgq5m8=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -129,11 +147,24 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wDBJq985RD4bs8/fUk8zzOVWj2s=
+			UiRPl2OaO5JV5fzHKN49A3MDfy8=
 			</data>
 			<key>hash2</key>
 			<data>
-			cKyepEcJL2SObjXzI88x9z/ZKJKo8mchs7sI4xweJCM=
+			CnqiwnrJv11VRIJ0U6d7FPWsveDGVojw/sZFVco3NxY=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Base.lproj/Main.storyboardc/QYQRBuilderViewController.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			9N06ScIUS3SKA7kM9GW1wM+P1Hg=
+			</data>
+			<key>hash2</key>
+			<data>
+			2973rpgHegqdWGDrmuDj2HagKcZ64UBi7eYEfiXv7TI=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -142,11 +173,24 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DW6gil0QmQ4LjuY/HzqWXBXWpig=
+			OvEShPn5ggiumx68LVIdnrTro6M=
 			</data>
 			<key>hash2</key>
 			<data>
-			YhFIQWSJzhE8iFScJrMYumAJ+wVwVOGMclUB8wQEhfg=
+			RAy8drREzpSfx5r91O9ZRYmzFzYLoXqjoC6ocLhmrNA=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Base.lproj/Main.storyboardc/YtQ-mH-KvL-view-8Gb-cQ-Tos.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			o3XNGTn+deEAhxU/vgpFtNizyGA=
+			</data>
+			<key>hash2</key>
+			<data>
+			i93dqv5yO2iMfTZVUpMgo8yIs1Ps7DLoagMb9rWY02M=
 			</data>
 			<key>optional</key>
 			<true/>
