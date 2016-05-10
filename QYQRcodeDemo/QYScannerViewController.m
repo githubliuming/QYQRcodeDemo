@@ -5,10 +5,10 @@
 //  Created by 明刘 on 16/5/6.
 //  Copyright © 2016年 liuming. All rights reserved.
 //
-
 #import "QYScannerViewController.h"
 #import "QYScanerView.h"
-@interface QYScannerViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+#import "QYSannerResultViewController.h"
+@interface QYScannerViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate,QYScanerViewDelegate>
 
 @end
 
@@ -20,19 +20,50 @@
 
     
     QYScanerView * scannerView = [[QYScanerView alloc] initWithFrame:self.view.bounds];
-    
+    scannerView.delegate =self;
     [self.view addSubview:scannerView];
     
     
     //选取相册中的二维码进行扫描
     
-    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    
+//    btn.frame =CGRectMake( 10, 400, 200, 40);
+//    [btn setTitle:@"从相册中选取" forState:UIControlStateNormal];
+//    
+//    [btn addTarget:self action:@selector(selectedQRFromAblumHandler) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:btn];
+}
+#pragma mark - QYScanerViewDelegate
+- (void)scaner:(QYScanerView *)scanerView scannerResult:(AVMetadataMachineReadableCodeObject *)result{
     
-    btn.frame =CGRectMake( 10, 400, 200, 40);
-    [btn setTitle:@"从相册中选取" forState:UIControlStateNormal];
-    
-    [btn addTarget:self action:@selector(selectedQRFromAblumHandler) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn];
+    if ([[result type] isEqualToString:AVMetadataObjectTypeQRCode] ) {
+        
+        NSString * string = [result stringValue];
+        
+        if ([string hasPrefix:@"http://"] || [string hasPrefix:@"https://"]) {
+            
+            //网络地址
+            
+            QYSannerResultViewController * viewControll = [[QYSannerResultViewController alloc ] init];
+            viewControll.resultStyle = QYScannerResultStyleWeb;
+            viewControll.content = string;
+            
+            [self.navigationController pushViewController:viewControll animated:YES];
+            
+        } else {
+            
+           //    文本
+            
+            QYSannerResultViewController * viewControll = [[QYSannerResultViewController alloc ] init];
+            viewControll.resultStyle = QYScannerResultStyleTxt;
+            viewControll.content = string;
+            
+            [self.navigationController pushViewController:viewControll animated:YES];
+            
+        }
+        
+    }
 }
 
 - (void)selectedQRFromAblumHandler{

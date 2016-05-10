@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		470E8DE91CE19769002E06E4 /* QYSannerResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 470E8DE81CE19769002E06E4 /* QYSannerResultViewController.m */; };
 		4763C56D1CDC821D00760D8D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4763C56C1CDC821D00760D8D /* AVFoundation.framework */; };
 		4763C5711CDC822F00760D8D /* QYScanerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4763C5701CDC822F00760D8D /* QYScanerView.m */; };
 		4763C5741CDC830000760D8D /* QYScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4763C5731CDC830000760D8D /* QYScannerViewController.m */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		470E8DE71CE19769002E06E4 /* QYSannerResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYSannerResultViewController.h; sourceTree = "<group>"; };
+		470E8DE81CE19769002E06E4 /* QYSannerResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYSannerResultViewController.m; sourceTree = "<group>"; };
 		4763C56C1CDC821D00760D8D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4763C56F1CDC822F00760D8D /* QYScanerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYScanerView.h; sourceTree = "<group>"; };
 		4763C5701CDC822F00760D8D /* QYScanerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYScanerView.m; sourceTree = "<group>"; };
@@ -137,6 +140,8 @@
 				4763C5731CDC830000760D8D /* QYScannerViewController.m */,
 				4763C5781CDC887300760D8D /* QYQRBuilderViewController.h */,
 				4763C5791CDC887300760D8D /* QYQRBuilderViewController.m */,
+				470E8DE71CE19769002E06E4 /* QYSannerResultViewController.h */,
+				470E8DE81CE19769002E06E4 /* QYSannerResultViewController.m */,
 				47BDC2091CDC808A009B34C3 /* Main.storyboard */,
 				47BDC20C1CDC808A009B34C3 /* Assets.xcassets */,
 				47BDC20E1CDC808A009B34C3 /* LaunchScreen.storyboard */,
@@ -305,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				470E8DE91CE19769002E06E4 /* QYSannerResultViewController.m in Sources */,
 				47BDC2081CDC808A009B34C3 /* ViewController.m in Sources */,
 				47BDC2051CDC808A009B34C3 /* AppDelegate.m in Sources */,
 				4763C5711CDC822F00760D8D /* QYScanerView.m in Sources */,

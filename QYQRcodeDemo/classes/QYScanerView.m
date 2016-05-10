@@ -7,7 +7,7 @@
 //
 
 #import "QYScanerView.h"
-#import <AVFoundation/AVFoundation.h>
+
 @interface QYScanerView ()<AVCaptureMetadataOutputObjectsDelegate>
 
 @property (strong, nonatomic) UIView *boxView;
@@ -23,7 +23,16 @@
 @end
 @implementation QYScanerView
 
+- (instancetype) initWithFrame:(CGRect)frame wihtDelegate:(id<QYScanerViewDelegate> )delegate{
 
+    self = [self initWithFrame:frame];
+    if (self) {
+        
+        self.delegate = delegate;
+    }
+    
+    return self;
+}
 - (instancetype) initWithFrame:(CGRect)frame{
     
     self = [super initWithFrame:frame];
@@ -131,16 +140,29 @@
 #pragma mark - AVCaptureMetadataOutputObjectsDelegate
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
 {
-    //判断是否有数据
-    if (metadataObjects != nil && [metadataObjects count] > 0) {
-        AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
-        //判断回传的数据类型
-        if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        //判断是否有数据
+        if (metadataObjects != nil && [metadataObjects count] > 0) {
+            AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
             
-            NSLog(@"%@",[metadataObj stringValue]);
+            if (self.delegate && [self.delegate respondsToSelector:@selector(scaner:scannerResult:)]) {
+                
+                [self.delegate scaner:self scannerResult:metadataObj];
+            }
             [self stopReading];
         }
-    }
+        
+    });
+    
+//        //判断回传的数据类型
+//        if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
+//            
+//            NSLog(@"%@",[metadataObj stringValue]);
+//            [self stopReading];
+//        }
+    
 }
 
 - (void) startReading{
