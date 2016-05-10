@@ -146,12 +146,12 @@
         //判断是否有数据
         if (metadataObjects != nil && [metadataObjects count] > 0) {
             AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
-            
+            [self stopReading];
             if (self.delegate && [self.delegate respondsToSelector:@selector(scaner:scannerResult:)]) {
                 
                 [self.delegate scaner:self scannerResult:metadataObj];
             }
-            [self stopReading];
+            
         }
         
     });
