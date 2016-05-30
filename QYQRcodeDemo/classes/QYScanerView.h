@@ -21,4 +21,5 @@
 
 - (instancetype) initWithFrame:(CGRect)frame wihtDelegate:(id<QYScanerViewDelegate> )delegate;
 -(UIImage *)getMyImage:(NSString *)str;
+- (NSString *)scanerQRFromImage:(UIImage *)image;
 @end
