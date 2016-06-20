@@ -18,6 +18,14 @@ void showMsg(NSString *msg)
     [alert show];
 }
 @interface QYScanerView ()<AVCaptureMetadataOutputObjectsDelegate>
+{
+    dispatch_queue_t dispatchQueue;
+    AVCaptureDevice *captureDevice;
+    // 3.创建媒体数据输出流
+    AVCaptureMetadataOutput *captureMetadataOutput;
+
+    AVCaptureDeviceInput *input;
+}
 
 @property(strong, nonatomic) UIView *boxView;
 @property(nonatomic) BOOL isReading;
@@ -38,6 +46,7 @@ void showMsg(NSString *msg)
     if (self)
     {
         self.delegate = delegate;
+        [self initScanner];
     }
 
     return self;
@@ -48,8 +57,7 @@ void showMsg(NSString *msg)
 
     if (self)
     {
-        [self initScanner];
-        [self startReading];
+        dispatchQueue = dispatch_queue_create("myQueue", NULL);
     }
 
     return self;
@@ -57,46 +65,28 @@ void showMsg(NSString *msg)
 
 - (BOOL)initScanner
 {
-    NSError *error;
-
-    // 1.初始化捕捉设备（AVCaptureDevice），类型为AVMediaTypeVideo
-    AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-
-    // 2.用captureDevice创建输入流
-    AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
-    if (!input)
+    if (self.delegate && [self.delegate respondsToSelector:@selector(scannerwillOpenCamera:)])
     {
-        NSLog(@"%@", [error localizedDescription]);
-        return NO;
+        [self.delegate scannerwillOpenCamera:self];
     }
+    [self init_scanner];
 
+    return YES;
+}
+
+- (void)init_scanner
+{
+    // 1.初始化捕捉设备（AVCaptureDevice），类型为AVMediaTypeVideo
+    captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     // 3.创建媒体数据输出流
-    AVCaptureMetadataOutput *captureMetadataOutput = [[AVCaptureMetadataOutput alloc] init];
-
+    captureMetadataOutput = [[AVCaptureMetadataOutput alloc] init];
     // 4.实例化捕捉会话
     _captureSession = [[AVCaptureSession alloc] init];
-
-    // 4.1.将输入流添加到会话
-    [_captureSession addInput:input];
-    _captureSession.sessionPreset = AVCaptureSessionPreset1920x1080;
-    // 4.2.将媒体输出流添加到会话中
-    [_captureSession addOutput:captureMetadataOutput];
-
-    // 5.创建串行队列，并加媒体输出流添加到队列当中
-    dispatch_queue_t dispatchQueue;
-    dispatchQueue = dispatch_queue_create("myQueue", NULL);
-    // 5.1.设置代理
-    [captureMetadataOutput setMetadataObjectsDelegate:self queue:dispatchQueue];
-
-    // 5.2.设置输出媒体数据类型为QRCode
-    [captureMetadataOutput setMetadataObjectTypes:[NSArray arrayWithObject:AVMetadataObjectTypeQRCode]];
-
     // 6.实例化预览图层
     _videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:_captureSession];
 
     // 7.设置预览图层填充方式
     [_videoPreviewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
-
     // 8.设置图层的frame
     [_videoPreviewLayer setFrame:self.bounds];
 
@@ -139,6 +129,41 @@ void showMsg(NSString *msg)
 
     [_boxView.layer addSublayer:_scanLayer];
 
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+
+        NSError *error;
+
+        // 2.用captureDevice创建输入流
+        input = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
+        if (!input)
+        {
+            NSLog(@"%@", [error localizedDescription]);
+        }
+
+        // 4.1.将输入流添加到会话
+        [_captureSession addInput:input];
+        _captureSession.sessionPreset = AVCaptureSessionPreset1920x1080;
+        // 4.2.将媒体输出流添加到会话中
+        [_captureSession addOutput:captureMetadataOutput];
+
+        // 5.1.设置代理
+        [captureMetadataOutput setMetadataObjectsDelegate:self queue:dispatchQueue];
+
+        // 5.2.设置输出媒体数据类型为QRCode
+        [captureMetadataOutput setMetadataObjectTypes:[NSArray arrayWithObject:AVMetadataObjectTypeQRCode]];
+
+        __weak typeof(self) weakSelf = self;
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(scannerDidOpenCamera:)])
+            {
+                [weakSelf.delegate scannerDidOpenCamera:weakSelf];
+            }
+            [weakSelf startReading];
+        });
+
+    });
+
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.2f
                                                   target:self
                                                 selector:@selector(moveScanLayer:)
@@ -146,10 +171,7 @@ void showMsg(NSString *msg)
                                                  repeats:YES];
 
     [self.timer setFireDate:[NSDate distantFuture]];
-
-    return YES;
 }
-
 #pragma mark - AVCaptureMetadataOutputObjectsDelegate
 - (void)captureOutput:(AVCaptureOutput *)captureOutput
     didOutputMetadataObjects:(NSArray *)metadataObjects
@@ -169,13 +191,6 @@ void showMsg(NSString *msg)
         }
 
     });
-
-    //        //判断回传的数据类型
-    //        if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
-    //
-    //            NSLog(@"%@",[metadataObj stringValue]);
-    //            [self stopReading];
-    //        }
 }
 
 - (void)startReading
@@ -193,10 +208,11 @@ void showMsg(NSString *msg)
 - (void)moveScanLayer:(NSTimer *)timer
 {
     __block CGRect frame = _scanLayer.frame;
+    __weak typeof(_scanLayer) weakScanLayer = _scanLayer;
     if (frame.origin.y == _boxView.frame.size.height - 1)
     {
         frame.origin.y = 0;
-        _scanLayer.frame = frame;
+        weakScanLayer.frame = frame;
     }
     else
     {
@@ -205,7 +221,7 @@ void showMsg(NSString *msg)
                          animations:^{
 
                              frame.origin.y = y;
-                             _scanLayer.frame = frame;
+                             weakScanLayer.frame = frame;
                          }];
     }
 }
@@ -247,4 +263,11 @@ void showMsg(NSString *msg)
         }
     }
 }
+
+- (void)stopTimer
+{
+    [self.timer invalidate];
+    self.timer = nil;
+}
+- (void)dealloc { NSLog(@"扫描试图被释放"); }
 @end

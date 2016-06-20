@@ -21,6 +21,7 @@
 		47BDC2101CDC808A009B34C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47BDC20E1CDC808A009B34C3 /* LaunchScreen.storyboard */; };
 		47BDC21B1CDC808B009B34C3 /* QYQRcodeDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BDC21A1CDC808B009B34C3 /* QYQRcodeDemoTests.m */; };
 		47BDC2261CDC808B009B34C3 /* QYQRcodeDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BDC2251CDC808B009B34C3 /* QYQRcodeDemoUITests.m */; };
+		A03B0F9A1CFC4B3B00D32827 /* UIImage+commond.m in Sources */ = {isa = PBXBuildFile; fileRef = A03B0F991CFC4B3B00D32827 /* UIImage+commond.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		47BDC2211CDC808B009B34C3 /* QYQRcodeDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QYQRcodeDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		47BDC2251CDC808B009B34C3 /* QYQRcodeDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYQRcodeDemoUITests.m; sourceTree = "<group>"; };
 		47BDC2271CDC808B009B34C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A03B0F981CFC4B3B00D32827 /* UIImage+commond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+commond.h"; sourceTree = "<group>"; };
+		A03B0F991CFC4B3B00D32827 /* UIImage+commond.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+commond.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,8 @@
 				4763C5701CDC822F00760D8D /* QYScanerView.m */,
 				4763C5751CDC84DD00760D8D /* QYQRCodeBuilder.h */,
 				4763C5761CDC84DD00760D8D /* QYQRCodeBuilder.m */,
+				A03B0F981CFC4B3B00D32827 /* UIImage+commond.h */,
+				A03B0F991CFC4B3B00D32827 /* UIImage+commond.m */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -314,6 +319,7 @@
 				47BDC2081CDC808A009B34C3 /* ViewController.m in Sources */,
 				47BDC2051CDC808A009B34C3 /* AppDelegate.m in Sources */,
 				4763C5711CDC822F00760D8D /* QYScanerView.m in Sources */,
+				A03B0F9A1CFC4B3B00D32827 /* UIImage+commond.m in Sources */,
 				4763C57A1CDC887300760D8D /* QYQRBuilderViewController.m in Sources */,
 				4763C5741CDC830000760D8D /* QYScannerViewController.m in Sources */,
 				47BDC2021CDC808A009B34C3 /* main.m in Sources */,
@@ -409,7 +415,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -448,7 +454,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

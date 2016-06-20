@@ -9,17 +9,19 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 @class QYScanerView;
-@protocol QYScanerViewDelegate <NSObject>
+@protocol QYScanerViewDelegate<NSObject>
 
 - (void)scaner:(QYScanerView *)scanerView scannerResult:(AVMetadataMachineReadableCodeObject *)result;
-
+- (void)scannerwillOpenCamera:(QYScanerView *)scannerView;
+- (void)scannerDidOpenCamera:(QYScanerView *)scannerView;
 @end
 @interface QYScanerView : UIView
 
+@property(nonatomic, assign) id<QYScanerViewDelegate> delegate;
 
-@property (nonatomic,assign)id<QYScanerViewDelegate> delegate;
-
-- (instancetype) initWithFrame:(CGRect)frame wihtDelegate:(id<QYScanerViewDelegate> )delegate;
--(UIImage *)getMyImage:(NSString *)str;
+- (instancetype)initWithFrame:(CGRect)frame wihtDelegate:(id<QYScanerViewDelegate>)delegate;
+- (UIImage *)getMyImage:(NSString *)str;
 - (NSString *)scanerQRFromImage:(UIImage *)image;
+
+- (void)stopTimer;
 @end
